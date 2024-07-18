@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/head" />
+
+<body>
+
+	<nav th:replace="fragments/nav"></nav>
+
+	<div class="container">
+
+		<h2 th:text="#{listadoVotaciones.message}"></h2>
+
+		<div class="form-group" id="datosok">
+			<span id="msgVotacionInfo" th:text="${msgVotacionInfo}"></span>
+		</div>
+		
+		<div th:unless="${votaciones.empty}">
+			<table class="table tablasPuzzle table-responsive">
+				<thead>
+					<tr>
+
+						<th th:text="#{name.message}"></th>
+						<th th:text="#{fecchaInicio.message}"></th>
+						<th th:text="#{fecchaFin.message}"></th>
+						<th th:text="#{acciones.message}"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id="trVotaciones" th:each="votacion : ${votaciones}">
+						<td th:text="${votacion.nombre}"></td>
+						<td th:text="${votacion.fechaInicio}"></td>
+						<td th:text="${votacion.fechaFin}"></td>
+						<td>
+							<form class="navbar-form" th:action="${'/irVotar/'+votacion.id}">
+								<button type="submit" th:id="${'/irVotar/'+votacion.id}"
+									class="btn btn-default" th:text="#{irVotar.message}"></button>
+							</form>
+							<form class="navbar-form"
+								th:action="${'/mostrarResultados/'+votacion.id}">
+								<button type="submit"
+									th:id="${'/mostrarResultados/'+votacion.id}"
+									class="btn btn-default" th:text="#{verResultados.message}"></button>
+							</form>
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div th:if="${votaciones.empty}">
+		<h4 th:text="#{listadoVotaciones.NoVotaciones.message}"></h4>
+		</div>
+		
+	</div>
+
+	<footer th:replace="fragments/footer"></footer>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#myNavbar">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a href="/"><img src="/img/Logo.png" alt="logo"></a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+
+			<div class="collapse navbar-collapse" id="myNavbar">
+
+				<ul class="nav navbar-nav navbar-right">
+
+
+					<li sec:authorize="!isAuthenticated()"><a id="registroUsuario"
+						href="/singup" th:text="#{signup.message}"> <span
+							class="glyphicon glyphicon-user"></span>
+					</a></li>
+					<li sec:authorize="!isAuthenticated()"><a href="/login"
+						th:text="#{login.message}"> <span
+							class="glyphicon glyphicon-log-in"></span>
+					</a></li>
+
+					<li sec:authorize="isAuthenticated()"><a href="/volver"
+						th:text="#{inicio.message}"> <span
+							class="glyphicon glyphicon-log-out" id="volver" name="volver"></span>
+					</a></li>
+					<li sec:authorize="isAuthenticated()"><a href="/logout"
+						th:text="#{logout.message}"> <span
+							class="glyphicon glyphicon-log-out" id="logout" name="logout"></span>
+					</a></li>
+
+					<!-- 	<li sec:authorize="isAuthenticated()"><a href="/logout"
+						th:text="#{logout.message}"> <span
+							class="glyphicon glyphicon-log-out" id="logout" name="logout"></span>
+					</a></li> -->
+				</ul>
+			</div>
+		</div>
+</nav>

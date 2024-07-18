@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/head" />
+
+<body>
+
+	<nav th:replace="fragments/nav"></nav>
+
+	<div class="container" align="center">
+
+		<h2 th:text="#{datosPersonales.message}"></h2>
+		<hr>
+
+
+		<form class="form-horizontal" method="post" action="/updateUser">
+
+			<div class="row fila">
+
+				<div class="col-12 col-md-4 cuadro">
+
+					<div class="separar">
+
+						<img src="img/dpersonales.png"
+							alt="Icono representativo para datos personales" />
+
+						<h3 th:text="#{datosPersonales.message}"></h3>
+
+						<label class="control-label col-12 labelperfil" for="nombre"
+							th:text="#{name.message}"></label> <label
+							class="form-control datoperfil" for="nombre"
+							th:text="${user.nombre}"></label> <label
+							class="control-label col-12 labelperfil" for="apellidos"
+							th:text="#{surname.message}"></label> <label
+							class="form-control datoperfil" for="apellidos"
+							th:text="${user.apellidos}"></label> <label
+							class="control-label col-12 labelperfil" for="numDocumento"
+							th:text="#{dni.message}"></label> <label
+							class="form-control datoperfil" for="numDocumento"
+							th:text="${user.numDocumento}"></label> <label
+							class="control-label col-12 labelperfil" for="fechaNacimiento"
+							th:text="#{edad.message}"></label> <label
+							class="form-control datoperfil" for="fechaNacimiento"
+							th:text="${user.edad}"></label>
+
+					</div>
+				</div>
+
+				<div class="col-12 col-md-4 cuadro">
+					<div class="separar">
+
+						<img src="img/contrasena.png"
+							alt="Icono representativo para contraseñas" />
+						<h3 th:text="#{acceso.message}"></h3>
+
+						<label class="control-label col-12 labelperfil" for="email"
+							th:text="#{email.message}"></label> <input type="text"
+							class="form-control" name="email" required="true"
+							th:value="${user.email}" /> <label
+							class="control-label col-12 labelperfil" for="pass"
+							th:text="#{pass.message}"></label> <input type="password"
+							class="form-control" name="pass" th:value="${user.password}" />
+
+						<label class="control-label col-12 labelperfil" for="reptPass"
+							th:text="#{reptPass.message}"></label> <input type="password"
+							class="form-control" name="reptPass"
+							th:value="${user.passwordConfirm}" />
+					</div>
+				</div>
+
+				<div class="col-12 col-md-4 cuadro">
+					<div class="separar">
+
+						<img src="img/localizacion.png"
+							alt="Icono representativo para direcciones" />
+						<h3>
+							<label th:text="#{dirr.message}"></label>
+						</h3>
+
+
+						<label class="control-label col-12 labelperfil" for="calle"
+							th:text="#{dirr.calle.message}"></label> <input type="text"
+							class="form-control" name="calle" required="true"
+							th:value="${user.calle}" /> <label
+							class="control-label col-12 labelperfil" for="cp"
+							th:text="#{dirr.cp.message}"></label> <input type="text"
+							class="form-control" name="cp" required="true"
+							th:value="${user.cp}" /> <label
+							class="control-label col-12 labelperfil" for="poblacion"
+							th:text="#{dirr.poblacion.message}"></label> <input type="text"
+							class="form-control" name="poblacion" required="true"
+							th:value="${user.poblacion}" /> <label
+							class="control-label col-12 labelperfil" for="provincia"
+							th:text="#{dirr.provincia.message}"></label> <input type="text"
+							class="form-control" name="provincia" required="true"
+							th:value="${user.provincia}" /> <label
+							class="control-label col-12 labelperfil" for="pais"
+							th:text="#{dirr.pais.message}"></label> <input type="text"
+							class="form-control" name="pais" required="true"
+							th:value="${user.pais}" />
+					</div>
+
+				</div>
+			</div>
+
+			<div class="form-group">
+
+				<button type="submit" id="btnVolver"
+					onclick="window.history.go(-1); return false;"
+					class="btn btn-primary" th:text="#{volver.message}">
+				</button>	
+				<button type="submit" id="btnLogIn" class="btn btn-primary "
+					th:text="#{perfil.modificar.message}"></button>
+			</div>
+
+		</form>
+	
+		<div class="form-group" id="datosok">
+			<p th:text="${erroresUpdate}"> </p>
+		
+			<span id="msgUpdateInfo" th:text="${msgUpdateInfo}"></span>
+		</div>
+
+	</div>
+
+	<footer th:replace="fragments/footer"></footer>
+
+</body>
+</html>

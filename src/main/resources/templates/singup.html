@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/head" />
+<body class="imgIndice2">
+	<!-- Barra de Navegación superior -->
+	<nav th:replace="fragments/nav"></nav>
+	<div class="container">
+
+		<h2 th:text="#{signup.text.message}"></h2>
+		
+		<form class="form-horizontal" method="post" action="/singup"
+			th:object="${user}">
+			
+				<!-- Nombre -->
+
+			<div class="col-12 form-group">
+					<label class="control-label col-sm-2" for="name"
+						th:text="#{signup.name.message}"></label>
+	
+						<input class="col-sm-2" type="text" name="nombre" required="true"> 
+						<span class="text-danger"
+							th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+	
+						<input class="col-sm-8" type="text" name="apellidos" required="true" /> <span class="text-danger"
+							th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}"></span>
+			</div>
+			
+			<!-- Fecha Nacimiento -->
+
+			<div class="col-12 form-group">
+					<label class="control-label col-sm-2" for="fechaNacimiento"
+						th:text="#{signup.fechaNacimiento.message}"></label>
+					<div class="col-sm-10">
+						<input type="date" class="form-control" name="fechaNacimiento" required="true">
+						<span class="text-danger"
+							th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></span>
+					</div>
+			</div>
+			 
+			
+			<!-- Email -->
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email" th:text="#{signup.email.message}"></label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="email" placeholder=""
+						required="true" /> <span class="text-danger"
+						th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+				</div>
+			</div>
+
+
+			<!-- Selector Nacionalidad -->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="nacionalidad" requiered="true" th:text="#{signup.nacionalidad.message}"></label>
+				<div class="col-sm-10">
+					<select th:field="*{nacionalidad}">
+						<option value="default" th:text="#{signup.eligepais.message}"></option>
+						<option th:each="p : ${paises}" th:value="${p.codPais}"
+							th:text="${p.nombre}" />
+					</select>
+				</div>
+			</div>
+
+			<!-- DNI, NIE, Pasaporte -->
+			<div class="form-group">
+				<div class="col-sm-10">
+					<input id="TipoDoc1" name="tipoDocumento" type="radio" value="DNI"checked="checked" />
+					<label for="TipoDoc1">DNI</label>
+					<input id="TipoDoc2" name="tipoDocumento" type="radio" value="NIE" />
+					<label for="TipoDoc2">NIE</label>
+<!-- 					<input id="TipoDoc3" name="tipoDocumento" type="radio" value="PAS" />
+					<label for="TipoDoc3">Pasaporte</label> -->
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="dni" th:text="#{signup.dni.message}"></label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="numDocumento" placeholder=""
+						required="true" /> <span class="text-danger"
+						th:if="${#fields.hasErrors('numDocumento')}" th:errors="*{numDocumento}"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="genero" th:text="#{signup.genero.message}"></label>
+					
+				<div>
+					<div class="col-sm-10">
+						<input id="gen0" name="genero" type="radio" value="M"/>
+						<label for="gen0" th:text="#{opcionGeneroM.message}"></label>
+						<input id="gen1" name="genero" type="radio" value="F"/>
+						<label for="gen1" th:text="#{opcionGeneroF.message}"></label>
+						<input id="gen2" name="genero" type="radio" value="GF"/>
+						<label for="gen2" th:text="#{opcionGeneroNB.message}"></label>
+						<input id="gen3" name="genero" type="radio" value="NA" checked="checked"/>
+						<label for="gen3" th:text="#{opcionGeneroNI.message}"></label>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Direccion -->
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="direccion.calle" th:text="#{signup.calle.message}"></label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="calle" placeholder=""
+						required="true" /> <span class="text-danger"
+						th:if="${#fields.hasErrors('calle')}" th:errors="*{direccion.calle}"></span>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="direccion.poblacion" th:text="#{signup.poblacion.message}"></label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="poblacion" placeholder=""
+						required="true" /> <span class="text-danger"
+						th:if="${#fields.hasErrors('poblacion')}" th:errors="*{direccion.poblacion}"></span>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="direccion.provincia" th:text="#{signup.provincia.message}"></label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="provincia" placeholder=""
+						required="true" /> <span class="text-danger"
+						th:if="${#fields.hasErrors('provincia')}" th:errors="*{direccion.provincia}"></span>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="direccion.cp" th:text="#{signup.cp.message}"></label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="cp" placeholder=""
+						required="true" /> <span class="text-danger"
+						th:if="${#fields.hasErrors('cp')}" th:errors="*{direccion.cp}"></span>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="direccion.pais" th:text="#{signup.pais.message}"></label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="pais" placeholder=""
+						required="true" /> <span class="text-danger"
+						th:if="${#fields.hasErrors('pais')}" th:errors="*{direccion.pais}"></span>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-sm-10">
+					<input type="checkbox"  name="politicaPrivacidad"
+						required="true"/>
+						<span th:text="#{signup.privacidadtext.message}" ></span>
+					
+						<a href="/verPoliticaPrivacidad" th:text="#{signup.privacidad.message}" ></a>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" id="btnRegistro"  class="btn btn-primary" th:text="#{signup.btn.message}"></button>
+				</div>
+			</div> 
+
+
+			<!--         RRE 1.5.2.1.1.1 En donde el valor inicial de X será de 8 y el de Y de 1 
+
+    RRE 1.5.2.1.1.2 El valor de X e Y podrá ser modificado por el administrador 
+
+    RRE 1.5.2.1.2 En el caso del NIE, el formato deberá de ser de Z letra/s, U números y E letra/s 
+
+    RRE 1.5.2.1.2.1 En donde el valor inicial de Z será 1 
+
+    RRE 1.5.2.1.2.2 En donde el valor inicial de U será 7 
+
+    RRE 1.5.2.1.2.3 En donde el valor inicial de E será 1 
+
+    RRE 1.5.2.1.2.4 El valor de Z, U, E podrá ser modificado por el administrador 
+
+    RRE 1.5.2.1.3 En el caso del Pasaporte, el formato deberá de ser Q letra/s y W números 
+
+    RRE 1.5.2.1.3.1 En donde el valor inicial de Q será 1 
+
+    RRE 1.5.2.1.3.2 En donde el valor inicial de W será 8 
+    
+			-->
+
+		</form>
+	</div>
+	
+	<footer th:replace="fragments/footer"></footer>
+	
+</body>
+</html>

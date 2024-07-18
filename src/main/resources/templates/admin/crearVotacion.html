@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/head" />
+
+<body>
+
+	<nav th:replace="fragments/adminNav"></nav>
+
+	<div class="container">
+
+		<h2 th:text="#{crearVotacion.message}"></h2>
+
+		<!-- 		<div class="form-group"> -->
+		<!-- 			<span id="msgError" th:text="${error}"></span> -->
+		<!-- 		</div> -->
+
+		<form class="form-horizontal" method="post" action="/irCrearVotacionSiguiente"
+			th:object="${votacion}" enctype="multipart/form-data">
+
+			<!-- Nombre -->
+			
+			<fieldset class="apartado">	
+				<legend  th:text="#{votaciondatosgenerales.message}"></legend>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="nombre"
+						th:text="#{name.message}"></label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="nombre"
+							required="true" /> <span class="text-danger"
+							th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+					</div>
+				</div>
+	
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="consulta"
+						th:text="#{consulta.message}"></label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="consulta"
+							required="true" /> <span class="text-danger"
+							th:if="${#fields.hasErrors('consulta')}" th:errors="*{consulta}"></span>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-sm-2"
+						th:text="#{fechaInicio.message}" for="fechaInicio"></label>
+					<div class="col-sm-10">
+						<input type="date" class="form-control" name="fechaInicio" required="true"/> <span
+							class="text-danger" th:if="${#fields.hasErrors('fechaInicio')}"
+							th:errors="*{fechaInicio}"></span>
+					</div>
+				</div>
+	
+				<div class="form-group">
+					<label class="control-label col-sm-2" th:text="#{fechaFin.message}"
+						for="fechaFin"></label>
+					<div class="col-sm-10">
+						<input type="date" class="form-control" name="fechaFin" required="true"/> <span
+							class="text-danger" th:if="${#fields.hasErrors('fechaFin')}"
+							th:errors="*{fechaFin}"></span>
+					</div>
+				</div>
+			</fieldset>			
+
+
+			<fieldset class="apartado">
+				<legend  th:text="#{votacionelegir.message}"></legend>
+				<div class="form-group">
+					<label class="control-label col-sm-8" for="censo"
+						th:text="#{forAll.message}"></label>
+					<div class="col-sm-4">
+						<input type="checkbox" name="forAll" th:checked="${forAll}" />
+	
+					</div>
+				</div>
+	
+				<div class="form-group">
+					<label class="control-label col-sm-8" for="censo"
+						th:text="#{censo.message}"></label>
+					<div class="col-sm-4">
+						<input type="file" th:name="file">
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset class="apartado" >
+				<legend th:text="#{votacionfiltrar.message}"></legend>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="filtroEdad"
+						th:text="#{filtroEdad.message}"></label>
+					<div class="col-sm-10">
+						<select id="filtro" name="filtroEdad">
+							<option value="0" th:text="#{opcion0.message}"></option>
+							<option value="1" th:text="#{opcion1.message}"></option>
+							<option value="2" th:text="#{opcion2.message}"></option>
+							<option value="3" th:text="#{opcion3.message}"></option>
+							<option value="4" th:text="#{opcion4.message}"></option>
+							<option value="5" th:text="#{opcion5.message}"></option>
+							<option value="6" th:text="#{opcion6.message}"></option>
+							<option value="7" th:text="#{opcion7.message}"></option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="filtroGenero"
+						th:text="#{filtroGenero.message}"></label>
+					<div class="col-sm-10">
+						<select id="filtro" name="filtroGenero">
+							<option value="0" th:text="#{opcionGenero0.message}"></option>
+							<option value="1" th:text="#{opcionGenero1.message}"></option>
+							<option value="2" th:text="#{opcionGenero2.message}"></option>
+							<option value="3" th:text="#{opcionGenero3.message}"></option>
+						</select>
+					</div>
+				</div>
+			</fieldset>
+
+			
+			
+			<div class="form-group" id="btnCrearVotacion2">
+				<button type="submit" id="btnCrearVotacion" class="btn btn-primary "
+					th:text="#{btnSiguiente.message}"></button>
+			</div>
+
+		</form>
+
+	</div>
+
+	<footer th:replace="fragments/footer"></footer>
+
+</body>
+</html>

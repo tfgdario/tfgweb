@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/head" />
+
+<body>
+
+	<nav th:replace="fragments/adminNav"></nav>
+
+	<div class="container">
+
+
+		<h2 th:text="#{gestionarUsuarios.message}"></h2>
+		
+		<hr>
+
+		<div class="table-responsive">
+			<table class="table tablasPuzzle">
+				<thead>
+					<tr>
+
+						<th th:text="#{name.message}"></th>
+						<th th:text="#{surname.message}"></th>
+						<th>Email</th>
+						<th class="col-md-1"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id="trPuzzle" th:each="user : ${usersList}">
+						<td th:text="${user.nombre}"></td>
+						<td th:text="${user.apellidos}"></td>
+						<td th:text="${user.email}"></td>
+						<td>
+
+							<form class="navbar-form" th:action="${'/admin/delete/'+user.id}">
+								<button type="submit" th:id="${'/admin/delete/'+user.numDocumento}"
+									class="btn btn-default btnPuzzle" th:text="#{eliminar.message}"></button>
+							</form>
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+
+	<footer th:replace="fragments/footer"></footer>
+
+</body>
+</html>

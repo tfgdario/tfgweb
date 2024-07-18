@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/head" />
+
+<body>
+
+	<nav th:replace="fragments/adminNav"></nav>
+
+	<div class="container" id="inicio">
+	
+
+		<h2 th:text="#{welcomeAdmin.message}"></h2>
+		
+		<ul id="menu">
+			<li><a href="/admin/crearVotacion" th:text="#{crearVotacion.message}"></a></li>
+			<li><a href="/admin/irGestionarVotaciones" th:text="#{gestionarVotaciones.message}"></a></li>
+			<li><a href="/admin/irCargarCenso" th:text="#{cargarCenso.message}"></a></li>
+			<li><a href="/admin/irGestionUsuarios" th:text="#{gestionarUsuarios.message}"></a></li>
+		</ul>
+		
+		<img src="/img/LogoG.png" alt="logo">
+		
+	</div>
+
+	<footer th:replace="fragments/footer"></footer>
+
+</body>
+</html>

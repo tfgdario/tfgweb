@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/head" />
+
+<body>
+
+	<nav th:replace="fragments/adminNav"></nav>
+
+
+	<div class="container mensajes">
+		
+		 <span th:if="${deleteVotacion == true}">
+			<h2 th:text="#{DeleteVotacionInfoTittle.message}"></h2>
+			<p th:text="#{DeleteVotacionInfo.message}"></p>
+		</span>
+    	<span th:if="${deleteVotacion == false}">
+			<h2 th:text="#{EditVotacionInfoTittle.message}"></h2>
+			<p th:text="#{EditVotacionInfo.message}"></p>
+		</span>
+		
+			
+		<div>
+			<button type="submit" id="btnVolver"
+				onclick="window.history.go(-1); return false;"
+				class="btn btn-primary" th:text="#{volver.message}"></button>
+
+		</div>
+	</div>
+
+	<footer th:replace="fragments/footer"></footer>
+
+</body>
+</html>

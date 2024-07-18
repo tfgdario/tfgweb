@@ -1,0 +1,264 @@
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body, .container {
+	/* Margin bottom by footer height */
+	margin-bottom: 60px;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	background-color: #101010;
+	color: #fff;
+	text-align: center;
+	line-height: 60px
+}
+
+h2 {
+	text-align:center;	
+}
+
+
+
+
+/*----------- Estilos para personalizar login.html ---------*/
+#loguear, .mensajes {
+	width: 50%;
+	margin: 25px auto;
+	text-align: center;
+	border: solid 1px #ccc;
+    -moz-box-shadow: 10px 10px 10px #777;
+    -webkit-box-shadow: 10px 10px 10px #777;
+    box-shadow: 10px 10px 10px #777;
+    padding-bottom: 15px;
+}
+
+.form_entrar{
+	width: 50%;
+	margin: 25px auto;
+}
+
+
+.form_entrar span {
+	display: inline-block;
+	font-size: 1.5em;
+}
+
+.form_entrar input {
+	display:inline-block;
+	margin-left: 10px;
+	border: none;
+	outline: none;
+	width: 90%;
+	height: 30px;
+}
+
+
+
+#usuario, #contrasenia {
+
+	border: 2px solid #2c90c6;
+	border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+  	-o-border-radius: 0 0 5px 5px;
+  	-ms-border-radius: 0 0 5px 5px;
+	color: #363636;
+	margin-bottom: 20px;
+	background-color: rgb(255,248,197);
+	padding-top: 5px;
+	padding_bottom: 5px;
+}
+
+.form_entrar input[type="submit"] {
+	background-color: #2c90c6;
+	border: 1px solid #2c90c6;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+	color: #fff;
+	font-weight: bold;
+	line-height: 48px;
+	text-align: center;
+	text-transform: uppercase;
+	width: 240px;
+}
+
+.form_entrar input[type="submit"]:hover {
+	background-color: #2c70c6;
+  box-shadow: 2px 2px 20px  #2c90c6, #fff 0 -1px 2px;
+}
+
+/* ---- Fin estilos login.html---- */
+
+
+/*----- Estilos para personalizar home.html ----- */
+
+#inicio {
+	text-align: center;
+}
+
+
+#menu {
+	list-style-type: none;
+	margin-top: 20px;
+}
+
+#menu li {
+	display: inline-block;
+	font-weight: bold;
+}
+
+#menu li a {
+	color: #000;	
+	text-decoration: none;
+	margin: 5px 15px;
+}
+
+#menu li a:hover {
+	border-bottom: solid 3px #ccc;
+}
+
+
+/* ---- Fin estilos home.html---- */
+
+
+
+/*------------------------- Estilos ver Perfil ------------------------- */
+/*A la fila que contiene los tres cuadros le he tenido que dar un display flex para que se igualaran la altura de las columnas. Luego le puse el flex-wrap en wrap para que si la ventana es más pequeña los cuadros se ajusten*/
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+/*Este id se corresponde a los div que tienen el tipo col. Tiene un padding para que su contenido no se peque muy a los bordes*/
+.cuadro{
+	padding: 5px;
+}
+
+/*Este id es el del div que está dentro de los div de tipo col. Lo tuve que meter para poder separar el contenido de las columnas y que no se bajaran al poner márgenes*/
+.separar {
+	border: solid 2px #777;
+	padding: 10px;
+	-moz-box-shadow: 5px 5px 5px #ccc;
+    -webkit-box-shadow: 5px 5px 5px #ccc;
+    box-shadow: 5px 5px 5px #ccc;
+    height: 100%;/*Le doy el 100% de la columna que lo contiene para que no pierda la altura y los más bajos ocupen  lo mismo que el más alto. */
+}
+
+.separar img {
+	width: 50px;
+}
+
+.datoperfil{
+	text-align: left;
+	font-weight:normal;
+}
+
+#datosok {
+	font-size: 1.5em;
+	color: #ff0000;
+	margin-top: 5px;
+	
+}
+
+
+
+/*------------------------- Estilos ver Resultados Votacion ------------------------- */
+.apartado {
+	margin-top: 10px;
+}
+
+
+/*------------------------- Estilos ver Resultados Votacion ------------------------- */
+#chart {
+	text-align:center;
+}
+
+#piechart {
+	margin:auto;
+	width: 900px;
+	height: 500px;	
+}
+
+
+/*================== ESTILOS PARTE ADMINISTRADOR ==================*/
+
+/*----- archivo crearVotacion ----- */
+
+#btnCrearVotacion2{
+	margin-top: 7px;
+	text-align:center;
+	
+}
+
+/*----- archivo Votacion ----- */
+.mensajes2 {
+	width: 90%;
+	margin: 25px auto;
+	text-align: center;
+	border: solid 1px #ccc;
+    -moz-box-shadow: 10px 10px 10px #777;
+    -webkit-box-shadow: 10px 10px 10px #777;
+    box-shadow: 10px 10px 10px #777;
+    padding-bottom:15px;
+}
+
+.separar2 {
+	width: 90%;
+	margin:15px auto;
+	padding: 10px;
+	height: 100%;/*Le doy el 100% de la columna que lo contiene para que no pierda la altura y los más bajos ocupen  lo mismo que el más alto. */
+}
+
+.fila {
+	width: 90%;
+}
+
+
+#verVotacionTabla{
+	width: 60%;
+	margin: auto;
+	text-align: center;
+}
+
+
+#centrar{
+	text-align: center;
+}
+
+
+/*----- archivo loadCenso ----- */
+.mensajes3 {
+	width: 90%;
+	margin: 25px auto;
+	text-align: center;
+	border: solid 1px #ccc;
+    -moz-box-shadow: 10px 10px 10px #777;
+    -webkit-box-shadow: 10px 10px 10px #777;
+    box-shadow: 10px 10px 10px #777;
+
+    padding-bottom:15px;
+}
+
+.mensajes3 table {
+	width: 90%;
+	margin: 25px auto;
+	text-align:center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.mensajes3 table td{
+	padding-top:10px;
+	padding-bottom: 10px;
+}

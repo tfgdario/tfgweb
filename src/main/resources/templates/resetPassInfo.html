@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/head" />
+<body class="imgIndice2">
+	<!-- Barra de Navegación superior -->
+	<nav th:replace="fragments/nav"></nav>
+	<div class="container mensajes">
+
+		<h2 th:text="#{login.confirmTitle.message}"></h2>
+
+		
+			
+			<p th:text="#{login.confirm.message}"></p>
+
+			<button type="submit" id="btnVolver"
+				onclick="window.history.go(-2); return false;"
+				class="btn btn-primary" th:text="#{volver.message}"></button>
+	
+
+
+	</div>
+	<footer th:replace="fragments/footer"></footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/head" />
+
+<body>
+
+	<nav th:replace="fragments/adminNav"></nav>
+
+	<div class="container" class="mensajes2">
+
+		<h2 th:text="${votacion.nombre}"></h2>
+		<h3 th:text="' '+${votacion.consulta}"></h3>
+
+		<div class="separar2">
+
+			<div class="row">
+
+				<div class="col form-group">
+					<label class="control-label col-sm-6"
+						th:text="#{fecchaInicio.message}" for="fechaInicio"></label>
+					<div class="col-sm-6">
+						<label class="control-label col-sm-6" name="fechaInicio"
+							th:text="${votacion.fechaInicio}"></label>
+					</div>
+				</div>
+
+				<div class="col form-group">
+					<label class="control-label col-sm-6"
+						th:text="#{fecchaFin.message}" for="fechaFin"></label>
+					<div class="col-sm-6">
+						<label class="control-label col-sm-6" name="fechaFin"
+							th:text="${votacion.fechaFin}"></label>
+					</div>
+				</div>
+			</div>
+
+			<div>
+
+				<table class="table tablasPuzzle table-responsive"
+					id="verVotacionTabla">
+					<thead>
+						<tr>
+							<th th:text="#{opciones.message}"></th>
+							<th th:text="#{acciones.message}"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr id="trVotaciones" th:each="opcion : ${votacion.opciones}">
+							<td><input type="text" class="form-control"
+								th:value="${opcion.opcion}" /></td>
+							<td>
+								<form class="navbar-form"
+									th:action="${'/votacion/eliminarOpcion/'+votacion.id+'/'+opcion.id}">
+									<button type="submit" id="btnEliminarOpcion"
+										class="btn btn-primary " th:text="#{opcion.eliminar.message}"></button>
+								</form>
+							</td>
+						</tr>
+						<tr>
+							<form class="navbar-form" method="POST"
+								th:action="${'/votacion/anadirOpcion/'+votacion.id}">
+								<td><input type="text" class="form-control"
+									name="nuevaOpcion" th:value="${opcion}" /></td>
+								<td>
+									<button type="submit" id="btnAnadirOpcion"
+										class="btn btn-primary " th:text="#{opcion.anadir.message}"></button>
+								</td>
+							</form>
+						</tr>
+					</tbody>
+					<!-- 				<tfoot> -->
+					<!-- 					<tr> -->
+					<!-- 						<td colspan="2" id="centrar"> -->
+					<!-- 							<form class="form-horizontal" method="post" th:action="${'/admin/updateVotacion/'+votacion.id}"> -->
+					<!-- <!-- 								<div class="form-group" id="centrar"> -->
+					<!-- 									<button type="submit" id="btnEdit" class="btn btn-primary " -->
+					<!-- 										th:text="#{perfil.modificar.message}"></button> -->
+					<!-- <!-- 								</div> -->
+
+					<!-- 							</form> -->
+					<!-- 						</td> -->
+					<!-- 					</tr> -->
+					<!-- 				</tfoot> -->
+				</table>
+			</div>
+
+
+
+
+
+
+
+
+
+
+			<!-- 	<hr> 
+
+
+
+		<div class="row">
+			<label class="control-label col-12 labelperfil" for="opciones"
+				th:text="#{opciones.message}"></label>
+		</div>
+		
+		<div class="row">
+			<div class="col" id="" th:each="opcion : ${votacion.opciones}">
+				
+				<input type="text" class="form-control"
+					th:value="${opcion.opcion}" />
+				<form class="navbar-form"
+						th:action="${'/votacion/eliminarOpcion/'+votacion.id+'/'+opcion.id}">
+					<button type="submit" id="btnEliminarOpcion"
+						class="btn btn-primary " th:text="#{opcion.eliminar.message}"></button>
+				</form>
+			</div>
+		</div>
+						<form class="navbar-form" method="POST" th:action="${'/votacion/anadirOpcion/'+votacion.id}">
+							<input type="text" class="form-control" name="nuevaOpcion" th:value="${opcion}" />
+							<button type="submit" id="btnAnadirOpcion"
+								class="btn btn-primary " th:text="#{opcion.anadir.message}"></button>
+						</form>
+		</div>
+					
+
+		<form class="form-horizontal" method="post" action="/updateVotacion">
+
+			<div class="form-group">
+				<button type="submit" id="btnEdit" class="btn btn-primary "
+					th:text="#{perfil.modificar.message}"></button>
+			</div>
+
+		</form>
+-->
+			<div>
+				<button type="submit" id="btnVolver"
+					onclick="window.history.go(-1); return false;"
+					class="btn btn-primary" th:text="#{volver.message}"></button>
+
+			</div>
+
+		</div>
+
+		<footer th:replace="fragments/footer"></footer>
+</body>
+</html>

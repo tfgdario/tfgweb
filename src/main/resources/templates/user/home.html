@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/head" />
+
+<body>
+
+	<nav th:replace="fragments/nav"></nav>
+
+	<div class="container" id="inicio">
+
+		<h2 th:text="#{welcome.message}"></h2>
+		
+		<ul id="menu">
+			<li><a href="/verPerfil" th:text="#{verPerfil.message}"></a></li>
+			<li><a href="/verVotaciones" th:text="#{verVotaciones.message}"></a></li>
+		</ul>
+		
+		<img src="/img/LogoG.png" alt="logo">
+	</div>
+
+	<footer th:replace="fragments/footer"></footer>
+
+</body>
+</html>

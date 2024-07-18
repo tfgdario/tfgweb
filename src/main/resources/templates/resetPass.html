@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/head" />
+<body class="imgIndice2">
+	<!-- Barra de Navegación superior -->
+	<nav th:replace="fragments/nav"></nav>
+	<div class="container mensajes">
+
+		<h2 th:text="#{login.resetPass.message}"></h2>
+
+		<form class="form-horizontal form_entrar" method="post"
+			action="/resetPass">
+			<div class="form-group">
+				<!-- <label class="control-label col-sm-2" for="username" th:text="#{username.message}"></label> -->
+				<div class="col-sm-10" id="usuario">
+					<input type="text" class="form-control" name="numDocumento"
+						required="true" th:placeholder="#{login.numdocum.message}" />
+				</div>
+			</div>
+
+			<button type="submit" id="btnVolver"
+				onclick="window.history.go(-1); return false;"
+				class="btn btn-primary" th:text="#{volver.message}"></button>
+				
+				<button type="submit" id="btnResetPass"
+				class="btn btn-primary" th:text="#{resetPass.message}"></button>
+				
+		</form>
+
+	</div>
+	<footer th:replace="fragments/footer"></footer>
+</body>
+</html>

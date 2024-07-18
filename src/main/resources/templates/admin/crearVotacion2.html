@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/head" />
+
+<body>
+
+	<nav th:replace="fragments/adminNav"></nav>
+
+	<div class="container" class="mensajes2">
+
+		<h2 th:text="#{votacion.titleVotacionok.message}+' '+${votacion.nombre}"></h2>
+		<h2 th:text="${votacion.consulta}"></h2>
+
+		<div class="separar2">
+
+			<div class="row">
+
+				<div class="col form-group">
+					<label class="control-label col-sm-6"
+						th:text="#{fecchaInicio.message}" for="fechaInicio"></label>
+					<div class="col-sm-6">
+						<label class="control-label col-sm-6" name="fechaInicio"
+							th:text="${votacion.fechaInicio}"></label>
+					</div>
+				</div>
+
+				<div class="col form-group">
+					<label class="control-label col-sm-6"
+						th:text="#{fecchaFin.message}" for="fechaFin"></label>
+					<div class="col-sm-6">
+						<label class="control-label col-sm-6" name="fechaFin"
+							th:text="${votacion.fechaFin}"></label>
+					</div>
+				</div>
+			</div>
+
+			<div>
+
+				<table class="table tablasPuzzle table-responsive"
+					id="verVotacionTabla">
+					<thead>
+						<tr>
+							<th th:text="#{opciones.message}"></th>
+							<th th:text="#{acciones.message}"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr id="trVotaciones" th:each="opcion : ${votacion.opciones}">
+							<td><input type="text" class="form-control"
+								th:value="${opcion.opcion}" /></td>
+							<td>
+								<form class="navbar-form"
+									th:action="${'/votacion/eliminarOpcion2/'+votacion.id+'/'+opcion.id}">
+									<button type="submit" id="btnEliminarOpcion"
+										class="btn btn-primary " th:text="#{opcion.eliminar.message}"></button>
+								</form>
+							</td>
+						</tr>
+						<tr>
+							<form class="navbar-form" method="POST"
+								th:action="${'/votacion/anadirOpcion2/'+votacion.id}">
+								<td><input type="text" class="form-control"
+									name="nuevaOpcion" th:value="${opcion}" /></td>
+								<td>
+									<button type="submit" id="btnAnadirOpcion"
+										class="btn btn-primary " th:text="#{opcion.anadir.message}"></button>
+								</td>
+							</form>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+
+		<div class="form-group" id="btnCrearVotacion2">
+			<button type="submit" id="btnVolver"
+				onclick="window.history.go(-1); return false;"
+				class="btn btn-primary" th:text="#{volver.message}"></button>
+		</div>
+
+		<div class="form-group" id="btnCrearVotacion2">
+			<form class="navbar-form" method="POST" th:action="${'/admin/finalizarCreacion/'+votacion.id}">
+			<button type="submit" id="btnCrearVotacion" class="btn btn-primary "
+				th:text="#{btnCrearBotacion.message}"></button>
+				</form>
+		</div>
+
+		<div class="form-group" id="btnCrearVotacion2">
+		<form class="navbar-form" method="POST"
+								th:action="${'/admin/deleteVotacion/'+votacion.id}">
+			<button type="submit" id="btnCancelar Creacion" class="btn btn-primary "
+				th:text="#{btnCancelarCreacion.message}"></button>
+				</form>
+		</div>
+
+		<footer th:replace="fragments/footer"></footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+
+<!-- <head th:replace="fragments/head" /> -->
+
+<!-- <body> -->
+
+<!-- 	<nav th:replace="fragments/adminNav"></nav> -->
+
+<!-- 	<div class="container"> -->
+
+<!-- 		<h2 th:text="#{crearVotacion.message}"></h2> -->
+
+
+<!-- 			<div> -->
+
+<!-- 				<table class="table tablasPuzzle table-responsive" -->
+<!-- 					id="verVotacionTabla"> -->
+<!-- 					<thead> -->
+<!-- 						<tr> -->
+<!-- 							<th th:text="#{opciones.message}"></th> -->
+<!-- 							<th th:text="#{acciones.message}"></th> -->
+<!-- 						</tr> -->
+<!-- 					</thead> -->
+<!-- 					<tbody> -->
+<!-- 						<tr id="trVotaciones" th:each="opcion : ${votacion.opciones}"> -->
+<!-- 							<td><input type="text" class="form-control" th:value="${opcion.opcion}" /></td> -->
+<!-- 							<td> -->
+<!-- 								<form class="navbar-form" action="${'/votacion/eliminarOpcion2/'+votacion.id+'/'+opcion.id}"> -->
+<!-- 									<button type="submit" id="btnEliminarOpcion" -->
+<!-- 										class="btn btn-primary " th:text="#{opcion.eliminar.message}"></button> -->
+<!-- 								</form> -->
+<!-- 							</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<form class="navbar-form" th:action="${'/votacion/anadirOpcion2/'+votacion.id}"> -->
+<!-- 								<td><input type="text" class="form-control" name="nuevaOpcion" th:value="${opcion}" /></td> -->
+<!-- 								<td> -->
+<!-- 									<button type="submit" id="btnAnadirOpcion" -->
+<!-- 										class="btn btn-primary " th:text="#{opcion.anadir.message}"></button> -->
+<!-- 								</td> -->
+<!-- 							</form> -->
+<!-- 						</tr> -->
+<!-- 					</tbody> -->
+
+<!-- 				</table> -->
+<!-- 			</div> -->
+
+<!-- 			<div class="form-group" id="btnCrearVotacion2"> -->
+<!-- 				<button type="submit" id="btnCrearVotacion" class="btn btn-primary " -->
+<!-- 					th:text="#{btnCrearBotacion.message}"></button> -->
+<!-- 			</div> -->
+
+<!-- 	</div> -->
+
+<!-- 	<footer th:replace="fragments/footer"></footer> -->
+
+<!-- </body> -->
+<!-- </html> -->

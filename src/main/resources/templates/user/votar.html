@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/head" />
+
+<body>
+
+	<nav th:replace="fragments/nav"></nav>
+
+	<div class="container">
+
+		<h2 th:text="${votacion.nombre}"></h2>
+
+		<div class="table-responsive">
+		
+			<h3 th:text="${votacion.consulta}"></h3>
+			
+			<form class="form-horizontal" method="post"
+				th:action="${'/user/votar/'+votacion.id}">
+
+
+				<table class="table ">
+					<thead>
+						<tr>
+							<th th:text="#{seleccionarVotacion.message}"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr id="trOpciones " th:each="opcion: ${opciones}">
+
+							<td><input type="radio" th:id="${opcion.id}" name="opcion"
+								class="custom-control-input" th:value="${opcion.id}"> <label
+								class="custom-control-label" for="${opcion}"
+								th:text="${opcion.opcion}"></label></td>
+
+						</tr>
+
+					</tbody>
+				</table>
+
+				
+				<button type="submit" id="btnVolver"
+					onclick="window.history.go(-1); return false;"
+					class="btn btn-primary" th:text="#{volver.message}"></button>
+					
+				<button name="btnVotar" type="submit" id="btnVotar"
+					class="btn btn-primary">Votar</button>
+
+				<!-- <button type="button" id="btnVotar" class="btn btn-primary" data-toggle="modal"
+					data-target="#exampleModal">Votar</button> -->
+
+
+				<!--           		 <th:block th:replace="user/modals/_modals :: modal('exampleModal')">modal</th:block>
+ -->
+			</form>
+
+		</div>
+
+	</div>
+
+	<!-- <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+ -->
+	<!-- <script>
+    $('#exampleModal1').on('show.bs.modal', function () {
+        $.get("/modals/modal1", function (data) {
+            $('#exampleModal1').find('.modal-body').html(data);
+        })
+    });
+
+    $('#exampleModal2').on('show.bs.modal', function () {
+        var name = prompt("Please enter your name", "John Doe");
+        $.get("/modals/modal2?name=" + name, function (data) {
+            $('#exampleModal2').find('.modal-body').html(data);
+        })
+    })
+</script> -->
+
+	<footer th:replace="fragments/footer"></footer>
+
+</body>
+</html>
